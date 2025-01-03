@@ -74,6 +74,28 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 
+  Future<void> aramaYap() async {
+    var liste = await Kisilerdao().kisiArama("et");
+
+    for(Kisiler k in liste){
+      print("*************");
+      print("Kişi id : ${k.kisi_id}");
+      print("Kişi ad : ${k.kisi_ad}");
+      print("Kişi yaş : ${k.kisi_yas}");
+    }
+  }
+
+  Future<void> rasgele() async {
+    var liste = await Kisilerdao().rasgele2kisiGetir();
+
+    for(Kisiler k in liste){
+      print("*************");
+      print("Kişi id : ${k.kisi_id}");
+      print("Kişi ad : ${k.kisi_ad}");
+      print("Kişi yaş : ${k.kisi_yas}");
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -81,8 +103,10 @@ class _MyHomePageState extends State<MyHomePage> {
     //sil();
     //guncelle();
     //kayitKontrol();
-    getir();
-    kisileriGoster();
+    //getir();
+    //aramaYap();
+    rasgele();
+
   }
 
   @override
